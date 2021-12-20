@@ -1,0 +1,82 @@
+<body>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    #coin {
+      position: relative;
+      margin: 0 auto;
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+      transition: transform 1s ease-in;
+      transform-style: preserve-3d;
+    }
+    .side {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      backface-visibility: hidden;
+    }
+    .head {
+       
+      z-index: 10;
+     
+    }
+    .tail {
+      
+      transform: rotateX(-180deg);
+    }
+
+    .flipHead {
+      animation: resultHead 2s ease-out forwards;
+    }
+    .flipTail {
+      animation: resultTail 2s ease-out forwards;
+    }
+
+    @keyframes resultHead {
+      from {
+        transform: rotateX(0);
+      }
+      to {
+        transform: rotateX(1800deg);
+      }
+    }
+
+    @keyframes resultTail {
+      from {
+        transform: rotateX(0);
+      }
+      to {
+        transform: rotateX(1980deg);
+      }
+    }
+  </style>
+  
+
+  <div id="coin">
+    <div class="side head"><img src="https://1.bp.blogspot.com/-5N5LEJcT96w/X0g2O7_NrbI/AAAAAAAAD8k/jC7x51QOLLoPYxdeSlFw7-OdKgr5NtZ7ACLcBGAsYHQ/s737/headicon.png width="200" height="200"></div>
+      
+    <div class="side tail">
+      <img src="https://1.bp.blogspot.com/-KvDrn5qSOTA/X0g2VZDOdWI/AAAAAAAAD8o/OD2pXFhdeP46R8Du-bL-Th0omW_BWb3dACLcBGAsYHQ/s737/tailicon.png" width="200" height="200">
+      </div>
+  </div>
+      
+      <div><center style="margin-top:300px">Developed By  <b>::: Mr. Chetan Prajapat :::</b> </center> </div>
+  <script>
+    let coin = document.getElementById("coin");
+
+    coin.addEventListener("click", fnClick);
+
+    function fnClick() {
+      var flipResult = Math.random();
+      if (flipResult < 0.5) {
+        coin.className = "flipHead";
+      } else {
+        coin.className = "flipTail";
+      }
+    }
+  </script>
+</body>
